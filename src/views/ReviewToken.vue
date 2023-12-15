@@ -112,7 +112,9 @@
               </div>
             </div>
             <div class="token_btn_area">
-              <button class="continue_btn" type="submit">Continue</button>
+              <router-link to="/" class="continue_btn" type="submit"
+                >Continue</router-link
+              >
             </div>
           </div>
         </div>

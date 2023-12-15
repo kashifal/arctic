@@ -21,7 +21,9 @@ const changeSidebar = () => {
 <template>
   <section class="sidebar">
     <div class="nav_header">
-      <a class="token_logo_brand" href="#"> <img :src="tokenLogo" alt="" /></a>
+      <router-link class="token_logo_brand" to="/">
+        <img :src="tokenLogo" alt=""
+      /></router-link>
       <i @click="changeSidebar" class="bx bx-menu btn-menu"></i>
     </div>
     <ul class="box_1">
@@ -33,7 +35,7 @@ const changeSidebar = () => {
         <span class="tooltip">Get Liquidity</span>
       </li>
       <li>
-        <router-link to="yield-pool">
+        <router-link to="/yield-pool">
           <img :src="funds" alt="" />
           <span class="title">Yield Pool</span>
         </router-link>

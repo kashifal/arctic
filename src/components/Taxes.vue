@@ -1,10 +1,18 @@
-<script setup></script>
+<script setup>
+//import router
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const setPage = () => {
+  router.push("/review-your-token");
+};
+</script>
 
 <template>
   <div class="token_page_content">
     <div class="Communities_right">
       <div class="token_info_box">
-        <form action="" method="GET">
+        <form @submit="setPage" action="" method="GET">
           <h5 class="heading5">3. Taxes</h5>
           <div class="single_input_group">
             <label for="name">Buy Tax</label>
@@ -27,13 +35,13 @@
             <input type="number" id="number" placeholder="0x" />
           </div>
           <div class="token_btn_area">
-            <router-link
-              to="/review-your-token"
+            <button
               class="continue_btn hover"
               type="submit"
               style="text-align: center: color: #fff;"
-              >Continue</router-link
             >
+              Continue
+            </button>
           </div>
         </form>
       </div>

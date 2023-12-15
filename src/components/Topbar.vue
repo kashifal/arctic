@@ -11,8 +11,8 @@ const changeDropdown = () => {
 };
 </script>
 <template>
-  <section class="header-button token_header_button">
-    <a class="custom_btn_1" href="#">Connect</a>
+  <section class="header-button main-top token_header_button">
+    <router-link class="custom_btn_1" to="/">Connect</router-link>
 
     <div class="token_dropdown">
       <div class="dropdown">
@@ -30,7 +30,7 @@ const changeDropdown = () => {
 
         <ul
           v-if="dropdown"
-          class="position-absolute top-8 bg-black left-0 w-100 rounded-2 py-2"
+          class="position-absolute px-2 dropi top-8 bg-black left-0 w-100 rounded-2 py-2"
         >
           <li>
             <a class="dropdown-item" href="#">
