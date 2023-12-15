@@ -1,0 +1,557 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,700,500,600&display=swap" rel="stylesheet');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Clash Display", sans-serif;
+  --color-hover: #575252;
+  --transition: all 0.2s ease;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+body {
+  overflow: hidden;
+}
+
+:root {
+  --color-black: #ffffff;
+  --color-bg: #000000;
+  --color-white: #0b0b0b;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 78px;
+  height: 100%;
+  background: var(--color-white);
+  padding: 8px 16px;
+  transition: var(--transition);
+}
+
+.sidebar.expand {
+  width: 250px;
+  transition: var(--transition);
+}
+
+.nav_header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav_header .logo {
+  color: var(--color-black);
+  font-size: 23px;
+  font-weight: 600;
+  opacity: 0;
+  transition: var(--transition);
+  margin-left: 56px;
+}
+
+.sidebar.expand .nav_header .logo {
+  opacity: 1;
+  transition: var(--transition);
+  margin-left: 0;
+}
+
+.nav_header .btn-menu {
+  position: absolute;
+  color: var(--color-black);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 23px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.sidebar.expand .btn-menu {
+  width: 40px;
+  height: 40px;
+  background: #1e1e1e;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  opacity: 0.4;
+  font-size: 30px;
+  color: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  transition: all 360ms ease;
+}
+.sidebar.expand .btn-menu:hover {
+  opacity: 1;
+}
+
+.sidebar.expand .nav_header .btn-menu {
+  margin-right: 0;
+}
+
+.box_1 {
+  margin-top: 20px;
+  height: 100%;
+  padding: 0;
+}
+
+.box_1 li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.box_1 i {
+  color: var(--color-black);
+  height: 50px;
+  min-width: 50px;
+  font-size: 23px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.box_1 img {
+  padding: 11px 0;
+  margin-left: 10px;
+  margin-right: 14px;
+  width: 23px;
+}
+
+.box_1 input {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-black);
+  outline: none;
+  height: 40px;
+  width: 50%;
+  border: none;
+  border-radius: 12px;
+  background: var(--color-bg);
+  padding: 0;
+}
+
+.sidebar.expand .box_1 input {
+  width: 100%;
+  padding: 0 20px 0 40px;
+}
+
+.box_1 li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  background: var(--color-white);
+  transition: all 350ms ease;
+}
+
+.box_1 li:hover a {
+  background: var(--color-hover);
+}
+
+.box_1 li:hover i {
+  color: #fff;
+}
+
+.box_1 li a .title {
+  color: var(--color-black);
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  display: none;
+  transition: var(--transition);
+}
+
+.sidebar.expand .box_1 li a .title {
+  display: block;
+  transition: var(--transition);
+}
+
+.box_1 li:hover a .title {
+  color: #fff;
+}
+
+.box_1 li .tooltip {
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: var(--color-white);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 6px 14px;
+  color: var(--color-black);
+  font-size: 15px;
+  white-space: nowrap;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transition: var(--transition);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar.expand .tooltip {
+  display: none;
+}
+
+.box_1 .search-btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-25px);
+  font-size: 23px;
+  color: var(--color-black);
+  border-radius: 12px;
+  background: var(--color-white);
+  transition: var(--transition);
+}
+
+.sidebar.expand .box_1 .search-btn {
+  background: transparent;
+  transition: var(--transition);
+}
+
+.sidebar.expand .box_1 li:hover .search-btn {
+  color: var(--color-black);
+}
+
+.box_1 .search-btn:hover {
+  background: var(--color-hover);
+}
+
+.theme-wrapper {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  width: 250px;
+  left: 0;
+  padding: 8px 16px;
+}
+
+.theme-wrapper .theme-icon {
+  font-size: 20px;
+  color: var(--color-black);
+  display: none;
+  transition: var(--transition);
+}
+.sidebar.expand .theme-wrapper .theme-icon {
+  display: block;
+}
+
+.theme-wrapper p {
+  font-size: 16px;
+  color: var(--color-black);
+  font-weight: 400;
+  display: none;
+  transition: var(--transition);
+}
+
+.sidebar.expand .theme-wrapper p {
+  display: block;
+}
+
+.theme-wrapper .theme-btn {
+  width: 40px;
+  height: 20px;
+  background: var(--color-bg);
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.theme-wrapper .theme-btn .theme-ball {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: var(--color-black);
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  transition: var(--transition);
+}
+
+.theme-wrapper .theme-btn .theme-ball.dark {
+  left: 20px;
+}
+
+.home {
+  position: relative;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  min-height: 100vh;
+  background: var(--color-bg);
+  z-index: 6;
+  transition: var(--transition);
+}
+
+.sidebar.expand ~ .home {
+  left: 250px;
+  width: calc(100% - 250px);
+  transition: var(--transition);
+}
+
+/* section home css
+************************/
+.home {
+  padding: 20px;
+}
+
+.custom_btn_1 {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  padding: 8px;
+  min-width: 184px;
+  transition: all 360ms ease;
+  text-decoration: none;
+}
+
+.custom_btn_1:hover {
+  color: #fff;
+  background: linear-gradient(90deg, #f66a04 0%, #f62104 103.72%);
+  box-shadow: rgba(235, 235, 238, 0.356) 0px 7px 29px 0px;
+}
+
+.header-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+.loan_fee {
+  display: flex;
+  justify-content: space-between;
+}
+.total_payment {
+  border-top: 1px solid #7b7777;
+  padding-top: 13px;
+}
+
+/* ************************************************************** */
+.token_yiend_Pool {
+  margin-top: 80px;
+  padding: 20px 0 40px 0;
+}
+.yield_pool_contain {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.button_yield {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+.custom_btn_2 {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+  padding: 8px;
+  min-width: 184px;
+  transition: all 360ms ease;
+  text-decoration: none;
+}
+.custom_btn_2:hover {
+  color: #fff;
+  background: #363636;
+}
+.yield_pool_item_2 {
+  position: relative;
+  padding: 22px 40px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background: #000;
+  max-width: 290px;
+  width: 100%;
+}
+.yield_pool_item_2::after {
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 100%;
+  background: #7b7777;
+  bottom: -8px;
+  left: 0;
+  z-index: -1;
+  border-radius: 0px 0px 25px 25px;
+}
+.yield_pool_item_2 p {
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.yield_pool_item_2 span {
+  margin-top: 16px;
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+/* token info contain item */
+.token_info_contain_item {
+  position: relative;
+  padding: 15px 18px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background: #000;
+  width: 100%;
+}
+.token_info_contain_item::after {
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 100%;
+  background: #7b7777;
+  left: 0;
+  bottom: -15px;
+  z-index: -9;
+  border-radius: 0px 0px 25px 25px;
+}
+.token_info_contain_item .table tr td,
+.token_info_contain_item .table tr th {
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 16px;
+}
+/* .review your token */
+.review_token {
+  margin-top: 100px;
+}
+.review_token_header {
+  text-align: center;
+}
+.review_token_header img {
+  width: 80px;
+}
+.review_token_header h2 {
+  margin-top: 18px;
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+/* tokent_info_review */
+.tokent_info_review {
+  margin-top: 50px;
+}
+.tokent_review_left {
+  position: relative;
+  padding: 30px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background: #000;
+  width: 100%;
+}
+.tokent_review_left::after {
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 100%;
+  background: #7b7777;
+  left: 0;
+  bottom: -10px;
+  z-index: -9;
+  border-radius: 0px 0px 25px 25px;
+}
+.tokent_review_item {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.review_text_box1 h4 {
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.review_text_box1 ul li {
+  color: #fff;
+  font-family: Clash Display;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 12px;
+}
+.total_payment_token_reviw {
+  max-width: 600px;
+  margin: 60px auto;
+}
+
+.token_info_contain_item .table-responsive {
+  white-space: nowrap;
+}
+.arctic_toket_background {
+  position: relative;
+}
+.arctic_toket_background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -300px;
+  width: 672px;
+  height: 659px;
+  flex-shrink: 0;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #f66a04 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: -1;
+}
+.nav_header img {
+  max-width: 150px;
+  width: 100%;
+}
+
+.sidebar.expand .token_logo_brand {
+  display: block;
+}
+.sidebar .token_logo_brand {
+  display: none;
+}
+
+.btn-hover:hover {
+  color: white;
+}

@@ -1,0 +1,117 @@
+
+@media all and (min-width: 992px){
+
+
+}
+@media all and (max-width: 991px){
+
+}
+
+@media all and (max-width:767px){
+	
+	.sidebar.expand ~ .home {
+		left: 0;
+		width: 100%;
+	}
+	.review_token {
+		margin-top: 70px;
+	}
+	.yield_pool_contain{
+		flex-direction: column;
+	}
+
+
+}
+@media all and (max-width:575px){
+	.review_token {
+		margin-top: 50px;
+	}
+	.token_header_button {
+		column-gap: 10px;
+	}
+	.custom_btn_1 {
+		font-size: 18px;
+		padding: 8px;
+		min-width: 133px;
+	}
+	.token_dropdown .btn {
+		padding: 8px 12px;
+	}
+	.token-step-single .number {
+		height: 40px;
+		width: 40px;
+		border: 3px solid #515151;
+		font-size: 16px;
+	}
+	.token-step-area::after {
+		top: 17.5px;
+	}
+	.token_info_box .heading5 {
+		padding-bottom: 10px;
+	}
+	.heading5 {
+		font-size: 30px;
+	}
+	.token_info_box {
+		padding: 38px 18px;
+		border-radius: 25px;
+	}
+	.borrow_text_left span, .token_borrow_item span {
+		font-size: 25px;
+	}
+	.single_preview_token p, .borrow_text_left p, .token_borrow_item p {
+		font-size: 16px;
+	}
+	.single_input_group label {
+		font-size: 18px;
+	}
+	.continue_btn {
+		font-size: 20px;
+		padding: 12px 30px;
+	}
+	.single_input_group input {
+		font-size: 18px;
+		padding: 30px 22px 12px 20px;
+	}
+	.single_input_group label {
+		font-size: 18px;
+		top: 10px;
+	}
+	.home {
+		padding: 20px 0;
+	}
+	.custom_btn_2 {
+		font-size: 18px;
+		padding: 7px;
+		min-width: 126px;
+	}
+}
+
+
+@media all and (max-width:450px){
+	.tokent_review_left {
+		padding: 30px 14px;
+	}
+	.single_input_group label {
+		font-size: 14px;
+		top: 10px;
+	}
+	.heading5 {
+		font-size: 26px;
+	}
+	.token_dropdown .dropdown-toggle::after {
+		margin-left: 1.255em;
+		vertical-align: 0rem;
+		border-top: 0.5em solid;
+		border-right: .5em solid transparent;
+		border-bottom: 0;
+		border-left: .5em solid transparent;
+	}
+
+}
+
+
+@media all and (max-width:375px){
+
+
+}
