@@ -8,11 +8,6 @@ import { ref } from "vue";
 const dropdown = ref(false);
 const changeDropdown = () => {
   dropdown.value = !dropdown.value;
-  if (dropdown.value) {
-    document.querySelector(".token_dropdown").classList.add("show");
-  } else {
-    document.querySelector(".token_dropdown").classList.remove("show");
-  }
 };
 </script>
 <template>
@@ -33,7 +28,10 @@ const changeDropdown = () => {
           <img :src="token1" alt="" />BSC</a
         >
 
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <ul
+          v-if="dropdown"
+          class="position-absolute top-8 bg-black left-0 w-100 rounded-2 py-2"
+        >
           <li>
             <a class="dropdown-item" href="#">
               <img :src="token2" alt="" />Ethereum</a
