@@ -33,10 +33,10 @@ const changeSidebar = () => {
         <span class="tooltip">Get Liquidity</span>
       </li>
       <li>
-        <a href="#">
+        <router-link to="yield-pool">
           <img :src="funds" alt="" />
           <span class="title">Yield Pool</span>
-        </a>
+        </router-link>
         <span class="tooltip">Yield Pool</span>
       </li>
       <li>
