@@ -220,6 +220,18 @@ body {
   .dropdown-item {
     padding: 2px 2px;
   }
+  .container {
+    max-width: 1320px;
+    padding: 0px 4px !important;
+    width: 100%;
+    margin: auto;
+  }
+
+  .single_input_group label {
+    font-size: 12px;
+    left: 20px;
+    top: 15px;
+  }
 }
 
 .box_1 .search-btn {
