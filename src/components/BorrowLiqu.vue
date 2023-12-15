@@ -1,23 +1,13 @@
 <script setup>
 import { useStepStore } from "../store/step";
+import { computed } from "vue";
 const step = useStepStore();
-import { ref } from "vue";
-const borrowEth = ref();
-const contributeEth = ref();
+import { ref, watch } from "vue";
+
+const borrowEth = ref(0);
+const contributeEth = ref(0);
 const totalEth = ref(1.0);
 const error = ref(null);
-
-const handleChangeBorrow = () => {
-  if (borrowEth.value > totalEth.value) {
-    borrowEth.value = totalEth.value;
-  }
-};
-
-const handleChangeContribute = () => {
-  if (borrowEth.value + contributeEth.value > totalEth.value) {
-    contributeEth.value = totalEth.value - borrowEth.value;
-  }
-};
 
 const handleClickContinue = () => {
   if (borrowEth.value + contributeEth.value > totalEth.value) {
@@ -28,6 +18,13 @@ const handleClickContinue = () => {
     step.changeStep(2);
   }
 };
+
+const progress = computed(() => {
+  const contribute = parseFloat(contributeEth.value);
+  const borrow = parseFloat(borrowEth.value);
+
+  return (contribute / (contribute + borrow)) * 100;
+});
 </script>
 <template>
   <div class="token_page_content">
@@ -43,12 +40,12 @@ const handleClickContinue = () => {
             <div class="progress">
               <div
                 class="progress-bar progress-bar-success"
-                :style="{ width: borrowEth * 100 + '%' }"
+                :style="{ width: progress + '%' }"
               ></div>
             </div>
             <div class="token_borrow_text">
               <div class="borrow_text_left">
-                <p>Borrow</p>
+                <p>Borrow {{ borrowProgress }}</p>
                 <span>{{ borrowEth }} eth</span>
               </div>
               <div class="borrow_text_left">
@@ -58,7 +55,7 @@ const handleClickContinue = () => {
             </div>
           </div>
           <div class="single_input_group">
-            <label for="name">Amount of Eth to borrow</label>
+            <label for="name">Amount to borrow</label>
             <input
               v-model="borrowEth"
               max="{{ totalEth }}"
@@ -70,7 +67,7 @@ const handleClickContinue = () => {
             />
           </div>
           <div class="single_input_group">
-            <label for="token_symbol">Amount of Eth to contribute</label>
+            <label for="token_symbol">Amount to contribute</label>
             <input
               v-model="contributeEth"
               type="text"

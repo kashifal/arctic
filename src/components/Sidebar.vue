@@ -28,10 +28,10 @@ const changeSidebar = () => {
     </div>
     <ul class="box_1">
       <li>
-        <a href="#">
+        <router-link t0="/">
           <i class="bx bxs-rocket"></i>
           <span class="title">Get Liquidity</span>
-        </a>
+        </router-link>
         <span class="tooltip">Get Liquidity</span>
       </li>
       <li>
