@@ -4,6 +4,16 @@ import token2 from "../assets/images/token/2.svg";
 import token3 from "../assets/images/token/3.svg";
 import token4 from "../assets/images/token/4.svg";
 import token5 from "../assets/images/token/5.svg";
+import { ref } from "vue";
+const dropdown = ref(false);
+const changeDropdown = () => {
+  dropdown.value = !dropdown.value;
+  if (dropdown.value) {
+    document.querySelector(".token_dropdown").classList.add("show");
+  } else {
+    document.querySelector(".token_dropdown").classList.remove("show");
+  }
+};
 </script>
 <template>
   <section class="header-button token_header_button">
@@ -12,6 +22,7 @@ import token5 from "../assets/images/token/5.svg";
     <div class="token_dropdown">
       <div class="dropdown">
         <a
+          @click="changeDropdown"
           class="btn btn-secondary dropdown-toggle"
           href="#"
           role="button"
@@ -40,7 +51,7 @@ import token5 from "../assets/images/token/5.svg";
           </li>
           <li>
             <a class="dropdown-item" href="#">
-              <img :src="token4" alt="" />Avalanche</a
+              <img :src="token5" alt="" />Avalanche</a
             >
           </li>
         </ul>
