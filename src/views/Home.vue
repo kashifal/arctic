@@ -16,7 +16,7 @@ const stepStore = useStepStore();
     <section class="Communities-area" data-aos="fade-up">
       <Steps :step="stepStore.step" />
       <div class="container">
-        <div v-if="stepStore.step === 1">
+        <div class="cursor-pointer" v-if="stepStore.step === 1">
           <BorrowLiqu />
         </div>
         <div v-else-if="stepStore.step === 2">
