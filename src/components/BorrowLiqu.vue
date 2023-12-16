@@ -76,7 +76,7 @@ const progress = computed(() => {
               <p>Loan Fee</p>
             </div>
             <div class="borrow_text_left">
-              <p>{{ (10 / 100) * borrowEth }}</p>
+              <p>{{ (10 / 100) * borrowEth }}eth</p>
             </div>
           </div>
           <div class="total_payment token_borrow_text">
@@ -85,7 +85,7 @@ const progress = computed(() => {
             </div>
             <div class="borrow_text_left">
               <p>
-                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }}
+                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }}eth
               </p>
             </div>
           </div>
