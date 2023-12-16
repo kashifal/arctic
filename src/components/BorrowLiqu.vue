@@ -14,9 +14,11 @@ const handleClickContinue = () => {
 };
 
 const progress = computed(() => {
-  const contribute = parseFloat(contributeEth.value);
-  const borrow = parseFloat(borrowEth.value);
-  return (borrow / (contribute + borrow)) * 100;
+  const contribute = parseFloat(contributeEth.value) || 0;
+  const borrow = parseFloat(borrowEth.value) || 0;
+  const total = Number(contribute) + borrow;
+
+  return total !== 0 ? (borrow / total) * 100 : 0;
 });
 </script>
 <template>
@@ -51,9 +53,8 @@ const progress = computed(() => {
             <label for="name">Amount to borrow</label>
             <input
               v-model="borrowEth"
-              max="{{ totalEth }}"
               @input="handleChangeBorrow"
-              type="text"
+              type="number"
               id="name"
               required
               placeholder="0"
@@ -63,11 +64,10 @@ const progress = computed(() => {
             <label for="token_symbol">Amount to contribute</label>
             <input
               v-model="contributeEth"
-              type="text"
+              type="number"
               id="token_symbol"
               required
               placeholder="0"
-              max="{{ totalEth }}"
               @input="handleChangeContribute"
             />
           </div>
@@ -76,7 +76,7 @@ const progress = computed(() => {
               <p>Loan Fee</p>
             </div>
             <div class="borrow_text_left">
-              <p>{{ (10 / 100) * borrowEth }}eth</p>
+              <p>{{ (10 / 100) * borrowEth }} eth</p>
             </div>
           </div>
           <div class="total_payment token_borrow_text">
@@ -85,7 +85,7 @@ const progress = computed(() => {
             </div>
             <div class="borrow_text_left">
               <p>
-                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }}eth
+                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }} eth
               </p>
             </div>
           </div>
