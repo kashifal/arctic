@@ -10,20 +10,13 @@ const totalEth = ref(1.0);
 const error = ref(null);
 
 const handleClickContinue = () => {
-  if (borrowEth.value + contributeEth.value > totalEth.value) {
-    error.value = "Total borrowed and contributed Eth cannot exceed totalEth.";
-  } else {
-    error.value = null;
-    // Continue to the next step
-    step.changeStep(2);
-  }
+  step.changeStep(2);
 };
 
 const progress = computed(() => {
   const contribute = parseFloat(contributeEth.value);
   const borrow = parseFloat(borrowEth.value);
-
-  return (contribute / (contribute + borrow)) * 100;
+  return (borrow / (contribute + borrow)) * 100;
 });
 </script>
 <template>
@@ -35,7 +28,7 @@ const progress = computed(() => {
           <div class="single_input_group">
             <div class="token_borrow_item">
               <p>Total Liquidity to add</p>
-              <span>{{ totalEth }} eth</span>
+              <span>{{ Number(contributeEth) + Number(borrowEth) }} eth</span>
             </div>
             <div class="progress">
               <div
@@ -46,11 +39,11 @@ const progress = computed(() => {
             <div class="token_borrow_text">
               <div class="borrow_text_left">
                 <p>Borrow {{ borrowProgress }}</p>
-                <span>{{ borrowEth }} eth</span>
+                <span>{{ borrowEth === "" ? 0 : borrowEth }} eth</span>
               </div>
               <div class="borrow_text_left">
                 <p>Contribute</p>
-                <span>{{ contributeEth }} eth</span>
+                <span>{{ contributeEth === "" ? 0 : contributeEth }} eth</span>
               </div>
             </div>
           </div>
@@ -83,7 +76,7 @@ const progress = computed(() => {
               <p>Loan Fee</p>
             </div>
             <div class="borrow_text_left">
-              <p>0.02 eth</p>
+              <p>{{ (10 / 100) * borrowEth }}</p>
             </div>
           </div>
           <div class="total_payment token_borrow_text">
@@ -91,7 +84,9 @@ const progress = computed(() => {
               <p>Total Payment</p>
             </div>
             <div class="borrow_text_left">
-              <p>0.28 eth</p>
+              <p>
+                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }}
+              </p>
             </div>
           </div>
           <div class="token_btn_area">
@@ -104,7 +99,6 @@ const progress = computed(() => {
             >
               Continue
             </button>
-            <p v-if="error" class="error_message text-white">{{ error }}</p>
           </div>
         </form>
       </div>

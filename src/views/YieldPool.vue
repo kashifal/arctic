@@ -5,7 +5,7 @@ import AppLayout from "../layouts/AppLayout.vue";
   <AppLayout>
     <div class="arctic_toket_background"></div>
 
-    <div class="token_yiend_Pool">
+    <div class="token_yiend_Pool w-100">
       <div class="container">
         <div class="yield_pool_contain">
           <div class="yield_pool_item">

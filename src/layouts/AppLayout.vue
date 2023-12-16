@@ -4,9 +4,9 @@ import Topbar from "../components/Topbar.vue";
 </script>
 
 <template>
-  <div class="app">
+  <div class="app class_a">
     <Sidebar />
-    <div class="main">
+    <div class="main class_b">
       <section class="home">
         <Topbar />
         <slot />
