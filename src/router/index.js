@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
+
 import Home from "../views/Home.vue";
 import YieldPool from "../views/YieldPool.vue";
 import ReviewToken from "../views/ReviewToken.vue";
 const router = createRouter({
   history: createWebHistory(),
+
   routes: [
     {
       path: "/",

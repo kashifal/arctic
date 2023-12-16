@@ -28,7 +28,7 @@ const changeSidebar = () => {
     </div>
     <ul class="box_1">
       <li>
-        <router-link t0="/">
+        <router-link to="/">
           <i class="bx bxs-rocket"></i>
           <span class="title">Get Liquidity</span>
         </router-link>

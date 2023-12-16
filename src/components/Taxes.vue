@@ -1,7 +1,6 @@
 <script setup>
 //import router
 import { useRouter } from "vue-router";
-const router = useRouter();
 
 const setPage = () => {
   router.push("/review-your-token");
