@@ -30,7 +30,12 @@ const progress = computed(() => {
           <div class="single_input_group">
             <div class="token_borrow_item">
               <p>Total Liquidity to add</p>
-              <span>{{ Number(contributeEth) + Number(borrowEth) }} eth</span>
+              <span
+                >{{
+                  (Number(contributeEth) + Number(borrowEth)).toFixed(2)
+                }}
+                eth</span
+              >
             </div>
             <div class="progress">
               <div
@@ -54,7 +59,7 @@ const progress = computed(() => {
             <input
               v-model="borrowEth"
               @input="handleChangeBorrow"
-              type="number"
+              type="text"
               id="name"
               required
               placeholder="0"
@@ -64,7 +69,7 @@ const progress = computed(() => {
             <label for="token_symbol">Amount to contribute</label>
             <input
               v-model="contributeEth"
-              type="number"
+              type="text"
               id="token_symbol"
               required
               placeholder="0"
@@ -76,7 +81,7 @@ const progress = computed(() => {
               <p>Loan Fee</p>
             </div>
             <div class="borrow_text_left">
-              <p>{{ (10 / 100) * borrowEth }} eth</p>
+              <p>{{ ((10 / 100) * borrowEth).toFixed(2) }} eth</p>
             </div>
           </div>
           <div class="total_payment token_borrow_text">
@@ -85,7 +90,13 @@ const progress = computed(() => {
             </div>
             <div class="borrow_text_left">
               <p>
-                {{ Number((10 / 100) * borrowEth) + Number(contributeEth) }} eth
+                {{
+                  (
+                    Number((10 / 100) * borrowEth) + Number(contributeEth)
+                  ).toFixed(2)
+                }}
+
+                eth
               </p>
             </div>
           </div>
