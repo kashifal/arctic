@@ -9,6 +9,39 @@ const dropdown = ref(false);
 const changeDropdown = () => {
   dropdown.value = !dropdown.value;
 };
+const selected = ref(1);
+
+const setSelected = (index) => {
+  selected.value = index;
+  dropdown.value = false;
+};
+
+const items = [
+  {
+    name: "BSC",
+    img: token1,
+  },
+  {
+    name: "Goerli",
+    img: token2,
+  },
+  {
+    name: "Ethereum",
+    img: token2,
+  },
+  {
+    name: "Arb",
+    img: token3,
+  },
+  {
+    name: "Polygon",
+    img: token4,
+  },
+  {
+    name: "Avalanche",
+    img: token5,
+  },
+];
 </script>
 <template>
   <section class="header-button main-top token_header_button">
@@ -25,31 +58,21 @@ const changeDropdown = () => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img :src="token1" alt="" />BSC</a
+          <img :src="token1" alt="" />{{ items[selected].name }}</a
         >
 
         <ul
           v-if="dropdown"
           class="position-absolute px-2 dropi top-8 bg-black left-0 w-100 rounded-2 py-2"
         >
-          <li>
+          <!-- Goerli -->
+          <li
+            v-for="(item, index) in items"
+            :key="item"
+            @click="setSelected(index)"
+          >
             <a class="dropdown-item" href="#">
-              <img :src="token2" alt="" />Ethereum</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              <img :src="token3" alt="" />Arb</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              <img :src="token4" alt="" />Polygon</a
-            >
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              <img :src="token5" alt="" />Avalanche</a
+              <img :src="item.img" alt="" />{{ item.name }}</a
             >
           </li>
         </ul>
