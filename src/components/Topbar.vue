@@ -4,7 +4,7 @@ import token2 from "../assets/images/token/2.svg";
 import token3 from "../assets/images/token/3.svg";
 import token4 from "../assets/images/token/4.svg";
 import token5 from "../assets/images/token/5.svg";
-import { Web3 } from "web3";
+import Web3 from "web3";
 
 import { ref } from "vue";
 const dropdown = ref(false);
@@ -20,11 +20,7 @@ async function connect() {
   if (window.ethereum) {
     await window.ethereum.request({ method: "eth_requestAccounts" });
     window.web3 = new Web3(window.ethereum);
-    const account = window.web3.eth.accounts;
-    console.log("====================================");
-    console.log(account.givenProvider, "here");
-    console.log("====================================");
-    return;
+    const account = web3.eth.accounts;
     console.log("====================================");
     console.log(account);
     console.log("====================================");
