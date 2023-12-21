@@ -37,6 +37,7 @@ async function connect() {
     console.log(walletAddress);
     console.log("====================================");
     localStorage.setItem("walletAddress", walletAddress);
+    token.value = localStorage.getItem("walletAddress");
   } else {
     console.log("No wallet");
   }
