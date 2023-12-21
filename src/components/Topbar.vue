@@ -4,7 +4,6 @@ import token2 from "../assets/images/token/2.svg";
 import token3 from "../assets/images/token/3.svg";
 import token4 from "../assets/images/token/4.svg";
 import token5 from "../assets/images/token/5.svg";
-import Web3 from "web3";
 
 import { ref } from "vue";
 const dropdown = ref(false);
@@ -16,42 +15,42 @@ const selected = ref(1);
 var walletAddress;
 
 //connect..
-async function connect() {
-  if (window.ethereum) {
-    await window.ethereum.request({ method: "eth_requestAccounts" });
-    window.web3 = new Web3(window.ethereum);
-    const account = web3.eth.accounts;
-    console.log("====================================");
-    console.log(account);
-    console.log("====================================");
-    //Get the current MetaMask selected/active wallet
-    walletAddress = account.givenProvider.selectedAddress;
-    //console.log(`Wallet: ${walletAddress}`);
-    console.log("wallet address is : " + walletAddress);
-    walletAddress = format_address(walletAddress);
-  } else {
-    console.log("No wallet");
-  }
-}
+// async function connect() {
+//   if (window.ethereum) {
+//     await window.ethereum.request({ method: "eth_requestAccounts" });
+//     window.web3 = new Web3(window.ethereum);
+//     const account = web3.eth.accounts;
+//     console.log("====================================");
+//     console.log(account);
+//     console.log("====================================");
+//     //Get the current MetaMask selected/active wallet
+//     walletAddress = account.givenProvider.selectedAddress;
+//     //console.log(`Wallet: ${walletAddress}`);
+//     console.log("wallet address is : " + walletAddress);
+//     walletAddress = format_address(walletAddress);
+//   } else {
+//     console.log("No wallet");
+//   }
+// }
 
-function format_address(address) {
-  var mystring = String(address);
+// function format_address(address) {
+//   var mystring = String(address);
 
-  start = mystring.substring(0, 8);
-  end = mystring.substring(38, 42);
-  return start + " .... " + end;
-}
+//   start = mystring.substring(0, 8);
+//   end = mystring.substring(38, 42);
+//   return start + " .... " + end;
+// }
 
-async function isConnected() {
-  const accounts = await ethereum.request({ method: "eth_accounts" });
-  if (accounts.length) {
-    console.log(`You're connected to: ${accounts[0]}`);
+// async function isConnected() {
+//   const accounts = await ethereum.request({ method: "eth_accounts" });
+//   if (accounts.length) {
+//     console.log(`You're connected to: ${accounts[0]}`);
 
-    // make accounts[0] the vlue of the connect box
-  } else {
-    // make connect btn default..
-  }
-}
+//     // make accounts[0] the vlue of the connect box
+//   } else {
+//     // make connect btn default..
+//   }
+// }
 
 const setSelected = (index) => {
   // selected.value = index;
