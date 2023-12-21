@@ -166,6 +166,7 @@ function setPage(e) {
     setTimeout(() => {
       showAlert.value = false;
       router.push({ name: "home" });
+      step.changeStep(1);
     }, 2000);
   }, 2000);
   // router.push({ name: "home" });
