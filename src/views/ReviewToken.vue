@@ -1,5 +1,12 @@
 <template>
   <section class="review_token">
+    <div
+      v-if="showAlert"
+      class="alert text-center position-fixed top-0 w-100 alert-success"
+      role="alert"
+    >
+      Token Launched Successfully
+    </div>
     <div class="container">
       <div class="review_token_contain">
         <div class="review_token_header">
@@ -13,6 +20,7 @@
 
   <!-- start tokent info review -->
   <div class="tokent_info_review">
+    KT
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -30,9 +38,9 @@
               <div class="review_text_box1">
                 <h4>&nbsp;</h4>
                 <ul>
-                  <li>Pepetoshi100xinu</li>
-                  <li>PEPETOSHI100XINU</li>
-                  <li>100,000,000</li>
+                  <li>{{ step.tokenData.tokenName }}</li>
+                  <li>{{ step.tokenData.tokenSymbol }}</li>
+                  <li>{{ step.tokenData.totalSupply }}</li>
                 </ul>
               </div>
             </div>
@@ -50,8 +58,8 @@
               <div class="review_text_box1">
                 <h4>&nbsp;</h4>
                 <ul>
-                  <li>2,000,000 (2%)</li>
-                  <li>1,000,000 (1%)</li>
+                  <li>{{ step.walletData.maxTransaction }}</li>
+                  <li>{{ step.walletData.maxWalletSize }}</li>
                 </ul>
               </div>
             </div>
@@ -73,10 +81,10 @@
               <div class="review_text_box1">
                 <h4>&nbsp;</h4>
                 <ul>
-                  <li>2%</li>
-                  <li>1 %</li>
-                  <li>1 %</li>
-                  <li>0%</li>
+                  <li>{{ step.taxData.buyTax }}</li>
+                  <li>{{ step.taxData.sellTax }}</li>
+                  <li>{{ step.taxData.refTax }}</li>
+                  <li>{{ step.taxData.liqTax }}</li>
                 </ul>
               </div>
             </div>
@@ -87,11 +95,11 @@
               <div class="token_borrow_text">
                 <div class="borrow_text_left">
                   <p>Borrow</p>
-                  <span>0.8 eth</span>
+                  <span>{{ step.borrowData.borrowEth }} eth</span>
                 </div>
                 <div class="borrow_text_left">
                   <p>Contribute</p>
-                  <span>0.2 eth</span>
+                  <span>{{ step.borrowData.contributeEth }} eth</span>
                 </div>
               </div>
             </div>
@@ -100,7 +108,9 @@
                 <p>Loan Fee</p>
               </div>
               <div class="borrow_text_left">
-                <p>0.02 eth</p>
+                <p>
+                  {{ ((10 / 100) * step.borrowData.borrowEth).toFixed(2) }} eth
+                </p>
               </div>
             </div>
             <div class="total_payment token_borrow_text">
@@ -108,13 +118,21 @@
                 <p>Total Payment</p>
               </div>
               <div class="borrow_text_left">
-                <p>0.28 eth</p>
+                <p>
+                  {{
+                    (
+                      Number((10 / 100) * step.borrowData.borrowEth) +
+                      Number(step.borrowData.contributeEth)
+                    ).toFixed(2)
+                  }}
+                </p>
               </div>
             </div>
             <div class="token_btn_area">
-              <router-link to="/" class="continue_btn" type="submit"
-                >Continue</router-link
-              >
+              <div @click="setPage" class="continue_btn" type="submit">
+                <span v-if="animate === false"> Launch a token</span>
+                <div v-else class="loader m-lg-auto"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -126,4 +144,31 @@
 
 <script setup>
 import revew from "../assets/images/revew.svg";
+import { useStepStore } from "../store/step";
+import { useRouter } from "vue-router";
+import { ref } from "vue";
+
+const animate = ref(false);
+const showAlert = ref(false);
+
+const router = useRouter();
+
+const step = useStepStore();
+
+function setPage(e) {
+  e.preventDefault();
+  animate.value = true;
+
+  setTimeout(() => {
+    animate.value = false;
+
+    showAlert.value = true;
+    setTimeout(() => {
+      showAlert.value = false;
+      router.push({ name: "home" });
+    }, 2000);
+  }, 2000);
+  // router.push({ name: "home" });
+  // step.changeStep(1);
+}
 </script>

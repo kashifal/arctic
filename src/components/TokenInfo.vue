@@ -1,10 +1,20 @@
 <script setup>
+import { ref } from "vue";
+const tokenName = ref("");
+const tokenSymbol = ref("");
+const totalSupply = ref(null);
+
 import { useStepStore } from "../store/step";
 
 const step = useStepStore();
 
 const setTokeon = () => {
   step.changeStep(3);
+  step.setTokens({
+    tokenName: tokenName.value,
+    tokenSymbol: tokenSymbol.value,
+    totalSupply: totalSupply.value,
+  });
 };
 </script>
 
@@ -20,6 +30,7 @@ const setTokeon = () => {
               required
               type="text"
               id="name"
+              v-model="tokenName"
               placeholder="Enter your token name"
             />
           </div>
@@ -29,12 +40,19 @@ const setTokeon = () => {
               required
               type="text"
               id="token_symbol"
+              v-model="tokenSymbol"
               placeholder="Enter your token Symbol"
             />
           </div>
           <div class="single_input_group">
             <label for="number">Total Supply</label>
-            <input required type="number" id="number" placeholder="0" />
+            <input
+              v-model="totalSupply"
+              required
+              type="number"
+              id="number"
+              placeholder="0"
+            />
           </div>
           <div class="token_btn_area">
             <button class="continue_btn" type="submit">Continue</button>

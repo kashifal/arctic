@@ -1,5 +1,5 @@
 <script setup>
-import tokenLogo from "../assets/images/token_logo.jpg";
+import tokenLogo from "../assets/images/token_logo.png";
 import funds from "../assets/images/funds 1.svg";
 import profile from "../assets/images/profile-user 1.svg";
 import cube from "../assets/images/cube 1.svg";
@@ -49,11 +49,18 @@ const changeSidebar = () => {
         <span class="tooltip">My Tokens</span>
       </li>
       <li>
-        <a href="#">
+        <router-link to="/launch_token">
           <img :src="cube" alt="" />
           <span class="title">Launched Tokens</span>
-        </a>
+        </router-link>
         <span class="tooltip">Launched Tokens</span>
+      </li>
+      <li>
+        <router-link to="/nft">
+          <img :src="cube" alt="" />
+          <span class="title">Nft Loands</span>
+        </router-link>
+        <span class="tooltip">Nft Loands</span>
       </li>
     </ul>
   </section>

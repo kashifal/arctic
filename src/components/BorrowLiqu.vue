@@ -10,6 +10,11 @@ const totalEth = ref(1.0);
 const error = ref(null);
 
 const handleClickContinue = () => {
+  step.setBorrows({
+    borrowEth: borrowEth.value,
+    contributeEth: contributeEth.value,
+    totalEth: totalEth.value,
+  });
   step.changeStep(2);
 };
 
