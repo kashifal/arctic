@@ -112,7 +112,7 @@ const items = [
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <img :src="token1" alt="" />{{ items[selected].name }}</a
+          <img :src="token2" alt="" />{{ items[selected].name }}</a
         >
 
         <ul

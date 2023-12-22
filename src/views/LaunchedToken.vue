@@ -9,7 +9,7 @@ import AppLayout from "../layouts/AppLayout.vue";
       <div class="container">
         <div class="yield_pool_contain">
           <div class="yield_pool_item">
-            <h5 class="heading5">Launch Tokens</h5>
+            <h5 class="heading5">Launched Tokens</h5>
           </div>
         </div>
       </div>

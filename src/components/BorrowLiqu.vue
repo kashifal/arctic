@@ -4,8 +4,8 @@ import { computed } from "vue";
 const step = useStepStore();
 import { ref, watch } from "vue";
 
-const borrowEth = ref(0);
-const contributeEth = ref(0);
+const borrowEth = ref("");
+const contributeEth = ref("");
 const totalEth = ref(1.0);
 const error = ref(null);
 
@@ -64,7 +64,7 @@ const progress = computed(() => {
             <input
               v-model="borrowEth"
               @input="handleChangeBorrow"
-              type="text"
+              type="number"
               id="name"
               required
               placeholder="0"
@@ -74,7 +74,7 @@ const progress = computed(() => {
             <label for="token_symbol">Amount to contribute</label>
             <input
               v-model="contributeEth"
-              type="text"
+              type="number"
               id="token_symbol"
               required
               placeholder="0"
@@ -106,15 +106,7 @@ const progress = computed(() => {
             </div>
           </div>
           <div class="token_btn_area">
-            <button
-              :class="[
-                borrowEth && contributeEth === '' ? ' disabled' : '',
-                'continue_btn',
-              ]"
-              type="submit"
-            >
-              Continue
-            </button>
+            <button :class="['continue_btn']" type="submit">Continue</button>
           </div>
         </form>
       </div>
