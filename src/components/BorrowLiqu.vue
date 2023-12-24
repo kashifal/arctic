@@ -9,7 +9,9 @@ const contributeEth = ref("");
 const totalEth = ref(1.0);
 const error = ref(null);
 
-const handleClickContinue = () => {
+const handleClickContinue = (e) => {
+  e.preventDefault();
+
   step.setBorrows({
     borrowEth: borrowEth.value,
     contributeEth: contributeEth.value,
@@ -63,11 +65,12 @@ const progress = computed(() => {
             <label for="name">Amount to borrow</label>
             <input
               v-model="borrowEth"
-              @input="handleChangeBorrow"
               type="number"
               id="name"
-              required
+              @input="validateInput('borrowEth')"
               placeholder="0"
+              required
+              step=".01"
             />
           </div>
           <div class="single_input_group">
@@ -75,6 +78,7 @@ const progress = computed(() => {
             <input
               v-model="contributeEth"
               type="number"
+              step=".01"
               id="token_symbol"
               required
               placeholder="0"
