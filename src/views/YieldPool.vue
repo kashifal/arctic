@@ -17,7 +17,7 @@ import AppLayout from "../layouts/AppLayout.vue";
           </div>
           <div class="yield_pool_item_2">
             <p>Total Value Locked</p>
-            <span>$ 5,200, 100</span>
+            <span>$0,00</span>
           </div>
         </div>
       </div>
