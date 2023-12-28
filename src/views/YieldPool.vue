@@ -42,33 +42,33 @@ import AppLayout from "../layouts/AppLayout.vue";
                 <tbody>
                   <tr>
                     <th>Ethereum</th>
-                    <td>$1,540,000</td>
-                    <td>$200,000</td>
-                    <td>$40,000</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
                   </tr>
                   <tr>
                     <th>BNB</th>
-                    <td>$1,540,000</td>
-                    <td>$200,000</td>
-                    <td>$40,000</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
                   </tr>
                   <tr>
                     <th>SOL</th>
-                    <td>$1,540,000</td>
-                    <td>$200,000</td>
-                    <td>$40,000</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
                   </tr>
                   <tr>
                     <th>Optimism</th>
-                    <td>$1,540,000</td>
-                    <td>$200,000</td>
-                    <td>$40,000</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
                   </tr>
                   <tr>
                     <th>Ethereum</th>
-                    <td>$1,540,000</td>
-                    <td>$200,000</td>
-                    <td>$40,000</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
+                    <td>$0.00</td>
                   </tr>
                 </tbody>
               </table>
